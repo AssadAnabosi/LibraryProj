@@ -1,4 +1,5 @@
 ﻿@model List<Book>
+@inject IHttpContextAccessor HttpContextAccessor
 @{
     ViewData["Title"] = "Library Books";
 }
@@ -12,8 +13,10 @@
 
     </form>
 
-    
-    <a class="btn btn-primary" asp-action="Add" asp-controller="Books">Add a Book</a>
+    @if (HttpContextAccessor.HttpContext.Session.GetString("name") != null)
+    {
+        <a class="btn btn-primary" asp-action="Add" asp-controller="Books">Add a Book</a>
+    }
 
 </div>
 
@@ -25,7 +28,10 @@
             <th>Name</th>
             <th>Edition</th>
             <th>Author</th>
-            <th></th>
+            @if (HttpContextAccessor.HttpContext.Session.GetString("name") != null)
+            {
+                <th></th>
+            }
         </tr>
     </thead>
     <tbody>
@@ -36,8 +42,10 @@
                 <td>@book.Name</td>
                 <td>@book.Edition</td>
                 <td>@book.Author.Name</td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@book.BookId" asp-controller="Books">
+                @if (HttpContextAccessor.HttpContext.Session.GetString("name") != null)
+                {
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@book.BookId" asp-controller="Books">
                         Edit
                     </a>
                     &nbsp;
@@ -45,6 +53,7 @@
                         Delete
                     </a>
                 </td>
+                }
             </tr>
         }
     </tbody>

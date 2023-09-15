@@ -13,6 +13,8 @@ builder.Services.AddDbContext<LibraryContext>(options =>
     options.UseSqlServer(
         builder.Configuration.GetConnectionString("LibraryContext")));
 
+builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
 
 var app = builder.Build();
 
@@ -23,11 +25,11 @@ if (!app.Environment.IsDevelopment())
 }
 app.UseStaticFiles();
 
-app.UseSession();
 
 app.UseRouting();
 
 app.UseAuthorization();
+app.UseSession();
 
 app.MapControllerRoute(
     name: "default",

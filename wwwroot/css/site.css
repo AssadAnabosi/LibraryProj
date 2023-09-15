@@ -25,7 +25,6 @@ body {
     margin-bottom: 15px
 }
 
-.space-between {
-    display: flex;
-    justify-content: space-between;
+.form-width{
+    width: 550px;
 }

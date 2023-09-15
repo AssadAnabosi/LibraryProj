@@ -29,11 +29,15 @@ namespace LibraryProj.Controllers
         [HttpGet]
         public IActionResult Add()
         {
+            if (HttpContext.Session.GetString("username") == null)
+                return RedirectToAction("Login", "Users");
             return View();
         }
 
         [HttpPost]
         public IActionResult Add(Author author) {
+            if (HttpContext.Session.GetString("username") == null)
+                return RedirectToAction("Login", "Users");
             _context.Authors.Add(author);
             _context.SaveChanges();
             return RedirectToAction("Index", "Authors");
@@ -43,16 +47,20 @@ namespace LibraryProj.Controllers
         [HttpGet]
         public IActionResult Edit(int id)
         {
+            if (HttpContext.Session.GetString("username") == null)
+                return RedirectToAction("Login", "Users");
+
             var author = _context.Authors.Find(id);
             if (author != null)
                 return View(author);
-
-            else
-                return RedirectToAction("Index", "Authors");
+            return RedirectToAction("Index", "Authors");
         }
         [HttpPost]
         public IActionResult Edit(Author author)
         {
+            if (HttpContext.Session.GetString("username") == null)
+                return RedirectToAction("Login", "Users");
+
             _context.Authors.Update(author);
             _context.SaveChanges();
             return RedirectToAction("Index", "Authors");
@@ -72,6 +80,8 @@ namespace LibraryProj.Controllers
         [HttpGet]
         public IActionResult Delete(int id)
         {
+            if (HttpContext.Session.GetString("username") == null)
+                return RedirectToAction("Login", "Users");
             var author = _context.Authors.Find(id);
             if (author != null)
             {
