@@ -7,7 +7,7 @@
 namespace LibraryProj.Migrations
 {
     /// <inheritdoc />
-    public partial class initial : Migration
+    public partial class Initial : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -47,7 +47,7 @@ namespace LibraryProj.Migrations
                     BookId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Eddition = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Edition = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     AuthorId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -78,7 +78,7 @@ namespace LibraryProj.Migrations
 
             migrationBuilder.InsertData(
                 table: "Books",
-                columns: new[] { "BookId", "AuthorId", "Eddition", "Name" },
+                columns: new[] { "BookId", "AuthorId", "Edition", "Name" },
                 values: new object[,]
                 {
                     { 1, 1, "First", "Test 1" },

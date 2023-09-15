@@ -16,3 +16,16 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+
+.bar {
+
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px
+}
+
+.space-between {
+    display: flex;
+    justify-content: space-between;
+}

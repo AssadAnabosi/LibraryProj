@@ -36,7 +36,7 @@ namespace LibraryProj.Models
                 {
                     BookId = 1,
                     Name = "Test 1",
-                    Eddition = "First",
+                    Edition = "First",
                     AuthorId = 1,
 
                 },
@@ -44,14 +44,14 @@ namespace LibraryProj.Models
                 {
                     BookId = 2,
                     Name = "Test 2",
-                    Eddition = "Second",
+                    Edition = "Second",
                     AuthorId = 2,
                 },
                 new Book
                 {
                     BookId = 3,
                     Name = "Test 3",
-                    Eddition = "Third",
+                    Edition = "Third",
                     AuthorId = 3,
                 }
                 );

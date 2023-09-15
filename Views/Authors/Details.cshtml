@@ -1,21 +1,16 @@
-﻿@model List<Book>
+﻿@model Author
 @{
-    ViewData["Title"] = "Library Books";
+    ViewData["Title"] = "Author's Detuals";
 }
 
-<div class="bar" >
+<div class="bar">
 
-    <form asp-action="Search" asp-controller="Books" method="get">
-        <label for="searchKey">Book Name</label>
-        <input type="text" name="searchKey" />
-        <button class="btn btn-warning" type="submit">Search</button>
-
-    </form>
-
-    
-    <a class="btn btn-primary" asp-action="Add" asp-controller="Books">Add a Book</a>
+    <a class="btn btn-primary" asp-action="Index" asp-controller="Authors">Go Back</a>
 
 </div>
+
+
+<h1>Author: @Model.Name's Books</h1>
 
 
 <table class="table table-bordered table-striped">
@@ -29,7 +24,7 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var book in Model)
+        @foreach (var book in @ViewBag.Books)
         {
             <tr>
                 <td>@book.BookId</td>

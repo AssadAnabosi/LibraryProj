@@ -1,0 +1,17 @@
+﻿@model Author
+@{
+    ViewData["Title"] = "Edit Author";
+}
+
+
+<form asp-action="Edit" asp-controller="Authors" method="post">
+    <input type="hidden" asp-for="AuthorId" />
+    <div>
+        <label asp-for="Name">Author Name</label>
+        <input asp-for="Name" type="text" name="Name" />
+    </div>
+
+    <button class="btn btn-primary" type="submit">Edit an Author</button>
+    <br />
+    <a class="btn btn-danger" asp-controller="Authors" asp-action="Index">Cancel</a>
+</form>

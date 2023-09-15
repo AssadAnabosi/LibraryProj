@@ -66,7 +66,7 @@ namespace LibraryProj.Migrations
                     b.Property<int>("AuthorId")
                         .HasColumnType("int");
 
-                    b.Property<string>("Eddition")
+                    b.Property<string>("Edition")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -85,21 +85,21 @@ namespace LibraryProj.Migrations
                         {
                             BookId = 1,
                             AuthorId = 1,
-                            Eddition = "First",
+                            Edition = "First",
                             Name = "Test 1"
                         },
                         new
                         {
                             BookId = 2,
                             AuthorId = 2,
-                            Eddition = "Second",
+                            Edition = "Second",
                             Name = "Test 2"
                         },
                         new
                         {
                             BookId = 3,
                             AuthorId = 3,
-                            Eddition = "Third",
+                            Edition = "Third",
                             Name = "Test 3"
                         });
                 });
